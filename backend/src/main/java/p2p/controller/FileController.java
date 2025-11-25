@@ -160,6 +160,7 @@ public class FileController {
         headers.add("Access-Control-Allow-Origin", "*");
         headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization");
+        headers.add("Access-Control-Expose-Headers", "Content-Disposition");
     }
 
     private void sendResponse(HttpExchange exchange, int statusCode, String response) throws IOException {
