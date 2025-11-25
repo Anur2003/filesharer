@@ -1,15 +1,13 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:21-jdk-slim
-
-# Set the working directory in the container
+# Build stage
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copy the packaged jar file into the container
-# Make sure to run 'mvn package' before building the docker image
-COPY target/filesharer-backend-1.0-SNAPSHOT.jar app.jar
-
-# Expose the port the app runs on
+# Run stage
+FROM eclipse-temurin:21-jre
+WORKDIR /app
+COPY --from=build /app/target/filesharer-backend-1.0-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
