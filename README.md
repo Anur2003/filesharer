@@ -4,8 +4,7 @@
 
 FileSharer is a modern file-sharing application built with **Java 21** and **Next.js 14**. It allows users to share files instantly using simple 6-character codes.
 
-![FileSharer Preview](https://via.placeholder.com/800x400?text=FileSharer+Preview+Image) 
-*(Replace this link with a real screenshot after deploying!)*
+[**🔴 Live Demo**](https://filesharer-fwvm33c1a-anurag-kumars-projects-58e808b2.vercel.app/)
 
 ## ✨ Features
 
